@@ -12,7 +12,8 @@ class ChatInput extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const input = e.target.querySelector('input');
-    this.props.dispatchAddMessage("branko", new Date(), input.value)
+    console.log("USERNAME SENDING MESSAGE: ", this.props.userInfo)
+    this.props.dispatchAddMessage(this.props.userInfo.username, Date.now(), input.value, this.props.socket)
     input.value = '';
     this.setState({ message: '' })
   }

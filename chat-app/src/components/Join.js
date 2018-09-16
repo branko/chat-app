@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import ChatHistoryContainer from './ChatHistoryContainer';
 import ChatInputContainer from './ChatInputContainer';
@@ -6,8 +7,18 @@ import ChatInputContainer from './ChatInputContainer';
 class Join extends Component {
   onSubmit = (e) => {
     e.preventDefault();
-    alert('!');
+    console.log('join!')
+
+    const userInfo = {
+      type: 'NEW_USER',
+      username: e.target.querySelector('input').value,
+    }
+
+    this.props.sock.send(JSON.stringify(userInfo))
+
+    this.props.history.push('/chat')
   }
+
   render() {
     return (
       <div className="join-container">
@@ -22,4 +33,4 @@ class Join extends Component {
   }
 }
 
-export default Join;
+export default withRouter(Join);
