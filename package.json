@@ -6,6 +6,7 @@
   "author": "Branko Culum <brankoculum@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "shortid": "^2.2.13",
     "sockjs": "^0.3.19"
   }
 }

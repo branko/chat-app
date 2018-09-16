@@ -6,7 +6,7 @@ App
     Sidebar
       CreateRoomForm
       Rooms
-    Chat
+    ChatHistory
       Message
         UsernameDisplay
         TimestampDisplay

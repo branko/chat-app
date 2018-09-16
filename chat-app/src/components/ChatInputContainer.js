@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { addMessage } from '../actions/index'
 import ChatInput from './ChatInput'
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
     dispatchAddMessage: (user, timestamp, message) => {
