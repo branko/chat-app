@@ -1,0 +1,81 @@
+@import './reset.css';
+@import './normalize.css';
+@import './skeleton.css';
+
+body {
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+ul {
+  outline: 2px solid red;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+div {
+  box-sizing: border-box;
+  background: white;
+}
+
+.sidebar {
+  height: 100vh;
+  background: #efefef;
+  width: 1000px;
+  padding: 30px;
+}
+
+.chat-room {
+  height: 100vh;
+  padding: 20px 0 30px 0;
+}
+
+.chat-history {
+  background: #fafafa;
+  overflow-y: scroll;
+  height: 80%;
+  margin: 0 0 50px 0;
+  padding-left: 10px;
+}
+
+.chat-input {
+  height: 50px;
+  margin-top: -30px;
+  vertical-align: center;
+  display: block;
+}
+
+.chat-input input {
+  background: white;
+  padding: 10px;
+  border: 1px solid #faf;
+  border-radius: 5px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.chat-message {
+  text-align: left;
+  margin: 5px 0;
+}
+
+.timestamp {
+  color: #363636;
+  width: 5em;
+  margin-right: 10px;
+}
+
+.user {
+  margin-right: 10px;
+}
+
+.join-container {
+  height: 130px;
+  position: relative;
+  top: 50vh;
+  margin-top: -100px;
+}
+
+.join-input {
+  padding: 10px;
+}

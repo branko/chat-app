@@ -1,0 +1,16 @@
+App
+  JoinPage
+    UsernameInput
+    JoinButton
+  ChatRoom
+    Sidebar
+      CreateRoomForm
+      Rooms
+    Chat
+      Message
+        UsernameDisplay
+        TimestampDisplay
+        MessageText
+      Message
+      Message
+    ChatInput

@@ -1,0 +1,11 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "A chat app using WebSockets, React, Redux",
+  "main": "index.js",
+  "author": "Branko Culum <brankoculum@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "sockjs": "^0.3.19"
+  }
+}
