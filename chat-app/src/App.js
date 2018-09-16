@@ -16,6 +16,7 @@ class App extends Component {
     super(props);
 
     const socket = new SockJS('http://0.0.0.0:9999/chat')
+    // const socket = new SockJS('http://206.189.74.63:9999/chat')
 
     this.props.addSocket(socket);
 
