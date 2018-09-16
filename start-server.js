@@ -6,6 +6,17 @@ var sockServer = sockjs.createServer({
   sockjs_url: 'http://cdn.jsdelivr.net/sockjs/1.0.1/sockjs.min.js',
 });
 
+function broadcastMessagesToAll() {
+  const payload = {
+    type: "FETCH_ALL_MESSAGES",
+    messageHistory
+  }
+
+  Object.keys(users).forEach(id => {
+    users[id].conn.write(JSON.stringify(payload))
+  })
+}
+
 const users = {
 
 }
@@ -31,15 +42,25 @@ sockServer.on('connection', conn => {
 
             // New users are assigned a UUID
             const id = shortid.generate();
-            users[id] = message.username;
+            users[id] = {
+              username: message.username,
+              conn,
+            };
 
             conn.write(JSON.stringify({
               type: "NEW_USER_ACK",
+              username: message.username,
               id
             }))
 
+            broadcastMessagesToAll();
+
           } else if (message.type === 'NEW_MESSAGE') {
-            console.log("New message!")
+            delete message.type;
+            console.log("NEW MESSAGE: ", message)
+            messageHistory.push(message)
+            console.log(messageHistory)
+            broadcastMessagesToAll();
           }
         } else {
           conn.write(message);

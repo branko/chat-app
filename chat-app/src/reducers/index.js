@@ -1,8 +1,12 @@
 import messages from './messages';
-import { combineReducers } from 'redux';
+import userInfo from './userInfo';
+import socket from './socket';
 
+import { combineReducers } from 'redux';
 const rootReducer = combineReducers({
-  messages
+  messages,
+  userInfo,
+  socket
 })
 
 export default rootReducer

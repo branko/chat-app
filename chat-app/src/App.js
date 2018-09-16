@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchAllMessages, addSocket, setLocalUser } from './actions/index';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import logo from './logo.svg';
@@ -10,11 +12,15 @@ import ChatRoom from './components/ChatRoom';
 import SockJS from 'sockjs-client';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const socket = new SockJS('http://0.0.0.0:9999/chat')
+
+    this.props.addSocket(socket);
 
     this.state = {
-      sock: new SockJS('http://0.0.0.0:9999/chat'),
+      sock: socket,
       user: {},
     };
 
@@ -32,14 +38,18 @@ class App extends Component {
 
         if (typeof message === 'object') {
           if (message.type === "NEW_USER_ACK") {
-
-
+            console.log("NEW USER ACK in App.js: ", message.username)
             this.setState({
               user: {
                 username: message.username,
                 id: message.id,
               }
             })
+
+            this.props.setLocalUser(message.username, message.id)
+          } else if (message.type === 'FETCH_ALL_MESSAGES') {
+            console.log(message.messageHistory)
+            this.props.fetchAllMessages(message.messageHistory);
           }
         } else {
           console.log('Message: ', message)
@@ -79,4 +89,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {}
+
+const mapDispatchToProps = dispatch => ({
+  fetchAllMessages: (msgs) => dispatch(fetchAllMessages(msgs)),
+  addSocket: (socket) => dispatch(addSocket(socket)),
+  setLocalUser: (username, id) => dispatch(setLocalUser(username, id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
