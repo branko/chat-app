@@ -16,7 +16,7 @@ class App extends Component {
     super(props);
 
     // const socket = new SockJS('https://0.0.0.0:9999/chat')
-    const socket = new SockJS('https://rk-chat-app.herokuapp.com/:9999/chat')
+    const socket = new SockJS('https://rk-chat-app.herokuapp.com:9999/chat')
 
     this.props.addSocket(socket);
 
