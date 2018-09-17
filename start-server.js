@@ -81,4 +81,4 @@ server.addListener('upgrade', function(req,res){
 sockServer.installHandlers(server, { prefix:'/chat' });
 
 console.log(' [*] Listening on 0.0.0.0:9999' );
-server.listen(9999, '0.0.0.0')
+server.listen(9999)
