@@ -1,12 +1,22 @@
 {
   "name": "chat-app",
-  "version": "1.0.0",
-  "description": "A chat app using WebSockets, React, Redux",
-  "main": "index.js",
-  "author": "Branko Culum <brankoculum@users.noreply.github.com>",
-  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0",
+    "sockjs-client": "^1.1.5",
     "shortid": "^2.2.13",
     "sockjs": "^0.3.19"
+  },
+  "scripts": {
+    "start": "node start-server.js & react-scripts start",
+    "build": "node start-server.js & react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
