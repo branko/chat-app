@@ -79,3 +79,12 @@ div {
 .join-input {
   padding: 10px;
 }
+
+.error {
+  background: pink;
+}
+
+.error-message {
+  color: red;
+  outline: red;
+}
