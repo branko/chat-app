@@ -8,7 +8,6 @@ body {
 }
 
 ul {
-  outline: 2px solid red;
   box-sizing: border-box;
   list-style: none;
 }
